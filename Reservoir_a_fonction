@@ -1,5 +1,8 @@
 
 
 function GetPath {
-	if 
+	$path='$2'
+	
+	#l'adresse donnée est absolue
+	if [grep ^$1=\/]
 }
