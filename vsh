@@ -6,12 +6,12 @@ serveur=$2
 if [ $cmd = "-list" ]; then
  ls $serveur
 elif  [ $cmd = "-browse" ]; then
- echo "browse"
- for((;;))
+ echo "browse" 
+ for((;;))        #boucle infini
   do
    read -p "vsh:>" cm serv
     if [ $cm = "exit" ]; then 
-     exit 0
+     exit 0 #sortie de la boucle infini (de la commande) 
     fi
   done
 elif [ $cmd = "-extract" ]; then
