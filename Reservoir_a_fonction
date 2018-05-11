@@ -1,8 +1,8 @@
+#!/bin/bash
 
 
-function GetPath {
-	$path='$2'
-	
-	#l'adresse donnée est absolue
-	if [grep ^$1=\/]
+path=$2
+
+function IsPathAbsolute {
+	if [grep ^$path
 }
