@@ -10,7 +10,7 @@ elif  [ $cmd = "-browse" ]; then
  for((;;))        #boucle infini
   do
    read -p "vsh:>" cm serv
-    if [ $cm = "exit" ]; then 
+    if [ $cmd = "exit" ]; then 
      exit 0 #sortie de la boucle infini (de la commande) 
     fi
   done
