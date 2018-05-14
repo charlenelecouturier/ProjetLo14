@@ -4,5 +4,21 @@
 path=$2
 
 function IsPathAbsolute {
-	if [grep ^$path
+	if [[ ${1:0:1} = "/" ]]; then 
+	#verifie si le premier ou le deuxieme terme est un "/"
+		echo "1"
+	else
+		echo "0"
+	fi
 }
+
+function CheckPort {
+port=$3
+	if [[ $port =~ ^[0-9]+$ ]] && [[ $port -ge 1 -a $port -le 47823 ]]; then 
+	#verifie si le port est bien un nombre inférieur à 47823
+			echo "1"
+		else
+			echo "0"
+	fi
+}
+#A VERIFIER
