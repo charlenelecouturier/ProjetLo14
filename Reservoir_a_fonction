@@ -1,9 +1,10 @@
 #!/bin/bash
 
 
-path=$2
+
 
 function IsPathAbsolute {
+path="$2"
 	if [[ ${path:0:1} = "/" ]]; then 
 	#verifie si le caractere en position 0 et 1 dans l'arguement path est un "/"
 		echo "1"
@@ -22,4 +23,14 @@ port=$3
 		else
 			echo "0"
 	fi
+}
+
+function GetPath {
+
+if (IsPathAbsolute "$2"); then
+		path=$2
+	else
+		pwd
+
+
 }
