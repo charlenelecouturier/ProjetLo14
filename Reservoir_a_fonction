@@ -25,12 +25,5 @@ port=$3
 	fi
 }
 
-function GetPath {
-
-if (IsPathAbsolute "$2"); then
-		path=$2
-	else
-		pwd
 
 
-}
