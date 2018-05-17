@@ -14,7 +14,7 @@ elif  [ $cmd = "-browse" ]; then
 				"exit") 
 					exit 0 ;; #sortie de la boucle infini (de la commande)
 				"pwd") 
-					pwd | sed "s/.*$serv/\//g";; #probleme: cette ligne retourne un '/' de trop lorsque on est dans un dossier
+					
 
 				"ls") 
 					;;
