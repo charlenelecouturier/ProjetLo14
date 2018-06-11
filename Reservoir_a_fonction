@@ -25,5 +25,11 @@ port=$3
 	fi
 }
 
+function BasePath() #cette fonction renvoie le chemin de base de l'archive 
+        {
+                bp=`grep -m1 "^directory " $archive | cut -d' ' -f2`
+                echo $bp
+        }
+
 
 
