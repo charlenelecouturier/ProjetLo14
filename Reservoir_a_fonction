@@ -77,5 +77,31 @@ function GetFileSize() {
 	echo $1 | grep -o -E '[0-9]+ [0-9]+ [0-9]+' | cut -d' ' -f1
 }
 
+function GetFileContent() {
+#prend une archive en argument 1
+#prend une ligne en argument 2
+#exemple : toto2 -rw-r--r-- 249 4 10
 
+fichier=$2
+
+
+    fileligne=$(echo $fichier | grep -E -o '[0-9]* [0-9]*$')
+    #exemple 4:10
+    ligneBody=$(GetLNBody $1)
+
+    
+    start=$(echo $fileligne | cut -d ' ' -f1)
+    end=$(echo $fileligne | cut -d ' ' -f2)
+    #exemple : start=4 et end=10
+
+    #awk -v a=$start -v b=$ligneBody '{a+=b} END {print a}'
+    start=$(($start+$ligneBody))
+    end=$(($end+$start))
+    
+    if [[ $(GetFileSize "$fichier") -ne 0 ]]; then
+    	cat $1 | sed -n  "${start},${end}p"
+    fi
+    
+    
+}
 
