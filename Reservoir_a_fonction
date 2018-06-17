@@ -235,3 +235,24 @@ GetHeader $1 | grep -v 'directory' | grep -v '@' > prep.txt
 	done < "prep.txt"
 rm "prep.txt"
 }
+
+function arrangeFiles() {
+#$1 Archive
+iteration=$(GetHeader archive_1 | egrep '^directory' | wc -l)
+
+for (( i = 1; i < $iteration; i++ )); do
+
+	GetEchelon $1 $i | sed '/^\s*$/d'> temp.txt
+	PathDossier=$(pwd)'serveur/'$( cat temp.txt | sed '1q;d' | cut -d' ' -f2 | sed 's/Exemple\/Test\///g' )
+	while IFS= read -r ligne; do
+		mv -i $(GetFileName $ligne) $PathDossier
+
+	done < <(tail -n +2 temp.txt)
+	rm "temp.txt"
+done
+
+}
+
+
+makeFiles $1
+arrangeFiles $1
