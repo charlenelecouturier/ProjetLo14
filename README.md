@@ -1,24 +1,11 @@
 # ProjetLo14
 
-#Ca va etre bien 
-Placer les scripts au bon endroit 
-
-Ensuite il faut appeler la fonction vsh 
+Il faut appeler la fonction vsh 
 ./vsh {option} localhost {PORT} {ARCHIVE}
 
-il faut mettre localhost a la place de serveur parceque je sais pas comment faire avec un server du coup pour le moment on fait ca en localhost 
-
-pour browse : 
-
-*ls  
-
-*ls -l 
-
-*cat
-
-*cd (A ou A/) 
-
-*pwd
-
-*rm (que les fichier pas eu le temps de faire les dossier)
-
+Options
+  -list : liste les archives sur le serveur 
+  -browse : ouvre un prompt ("mini shell") pour parcourir les archives avec les commandes suivantes : ls(-l), cat , cd, pwd, rm (ne marche que pour les fichiers)
+  -extract : extrait le fichier / dossier selectionné en respectant et recreant les arborescences a partir de l'archive.
+  
+  
